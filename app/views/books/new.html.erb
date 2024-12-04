@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <h1>新規投稿</h1>
 <!-- form_with部分 -->
 <%= form_with model: @book, url: books_path do |f| %>

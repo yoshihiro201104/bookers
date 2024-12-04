@@ -2,7 +2,8 @@
 <% @books.each do |book| %>
   <p>タイトル</p>
   <span>
-    <%= link_to book.title, book_path(book.id) %>
+    <%= book.title %>
+     <%= book.body %>
   </span>
   <%= link_to 'Show', book %>
   <%= link_to 'Edit', edit_book_path(book) %>

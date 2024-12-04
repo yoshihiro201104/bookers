@@ -1,0 +1,19 @@
+<h1>Books</h1>
+
+<% @books.each do |book| %>
+
+  <p>タイトル</p>
+  <span>
+    <%= link_to book.title, book_path(book.id) %>
+  </span>
+  <%= link_to 'Show', root_path %>
+  <%= link_to 'Edit', root_path %>
+  <%= link_to 'Destroy', root_path %>
+
+    <span>
+    <%= link_to book.title, "/books/#{book.id}" %>
+  </span>
+
+  
+  
+<% end %>

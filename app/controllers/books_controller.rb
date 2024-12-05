@@ -6,17 +6,13 @@ class BooksController < ApplicationController
 
   # 以下を追加
   def create
-    # １.&2. データを受け取り新規登録するためのインスタンス作成
     @book = Book.new(book_params)
-    # 3. データをデータベースに保存するためのsaveメソッド実行
     if @book.save
-      # 3. フラッシュメッセージを定義し、
       flash[:notice] = "Book was successfully created."
-      # 4. 詳細画面へリダイレクト
       redirect_to book_path(@book.id)
     else
-      # 3. フラッシュメッセージを定義し、new.html.erbを描画する
-      flash[:notice] = "投稿に失敗しました。"
+      flash[:alert] = "投稿に失敗しました。"
+      puts @book.errors.full_messages
       render :new
     end
   end

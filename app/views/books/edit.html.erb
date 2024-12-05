@@ -1,5 +1,11 @@
 <div>
-  <%= flash[:notice] %>
+  <% if flash[:error_messages].present? %>
+    <ul>
+      <% flash[:error_messages].each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
 
 <h1>Editing Book</h1>

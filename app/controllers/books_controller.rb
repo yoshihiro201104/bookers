@@ -18,7 +18,6 @@ class BooksController < ApplicationController
   end
 
   def index
-    @book = Book.new
     @books = Book.all
   end
 
@@ -28,6 +27,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    flash[:error_messages] = @book.errors.full_messages if @book.errors.any?
   end
 
   def update

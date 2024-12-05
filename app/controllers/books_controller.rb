@@ -12,16 +12,18 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       flash[:alert] = "投稿に失敗しました。"
-      puts @book.errors.full_messages
-      render :new
+      flash[:error_messages] = @book.errors.full_messages
+      redirect_to books_path
     end
   end
+
   def index
+    @book = Book.new
     @books = Book.all
   end
 
   def show
-    @book = Book.find(params[:id]) 
+    @book = Book.find(params[:id])
   end
 
   def edit
